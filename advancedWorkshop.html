@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<head>
+<meta content="utf-8">
+<link rel="stylesheet" href="file:///C:/Users/johnp/AppData/Roaming/Dynamo/Dynamo Core/1.3/packages/Archi-lab_Mandrill/extra/gridster/demo.css">
+<link rel="stylesheet" href="file:///C:/Users/johnp/AppData/Roaming/Dynamo/Dynamo Core/1.3/packages/Archi-lab_Mandrill/extra/gridster/jquery.gridster.min.css">
+<script type="text/javascript" src="file:///C:/Users/johnp/AppData/Roaming/Dynamo/Dynamo Core/1.3/packages/Archi-lab_Mandrill/extra/d3/d3.v3.min.js"></script>
+<script type="text/javascript" src="file:///C:/Users/johnp/AppData/Roaming/Dynamo/Dynamo Core/1.3/packages/Archi-lab_Mandrill/extra/gridster/jquery.min.js"></script>
+<script type="text/javascript" src="file:///C:/Users/johnp/AppData/Roaming/Dynamo/Dynamo Core/1.3/packages/Archi-lab_Mandrill/extra/gridster/jquery.gridster.min.js" type="text/javascript" charset="utf-8"></script>
+<style>
+body {
+    font: 10px Arial;
+}
+
+.axis,
+.frame {
+  shape-rendering: crispEdges;
+}
+
+.axis path {
+    fill: none;
+    stroke: grey;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    font-family: Arial;
+    font-size: 10px;
+}
+
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+
+svg {
+    display: block;
+    margin: auto;
+    font: 10px sans-serif;
+    padding: 10px;
+}
+
+circle.hidden {
+  fill: #ccc !important;
+}
+
+.extent {
+  fill: #000;
+  fill-opacity: .125;
+  stroke: #fff;
+}
+</style>
+</head>
+<body>
+<script type="text/javascript">
+        $(window).on('load', function () {
+            var gridster = $(".gridster ul").gridster({
+                widget_base_dimensions: [100, 100],
+                autogenerate_stylesheet: true,
+                widget_margins: [5, 5],
+                autogrow_cols: true,
+                helper: 'clone',
+                shift_widgets_up: false,
+                shift_larger_widgets_down: false,
+                collision: {
+                    wait_for_mouseup: true
+                },
+                resize: {
+                    enabled: false,
+                    stop: function (e, ui, $widget) {
+                        var newDimensions = this.serialize($widget)[0];
+                    }
+                }
+            }).data('gridster');
+            $('.gridster  ul').css({ 'padding': '0' });
+        });
+</script>
+<div class="gridster">
+<ul style="height: 1000px; width: 1000px; position: absolute;">
+<li data-row="1" data-col="1" data-sizex="6" data-sizey="6" class="gs-w"><div class="gridster-box" id="div0" align="center"></div></li>
+<li data-row="1" data-col="1" data-sizex="2" data-sizey="4" class="gs-w"><div class="gridster-box" id="div1" align="center"></div></li>
+<li data-row="1" data-col="1" data-sizex="6" data-sizey="6" class="gs-w"><div class="gridster-box" id="div2" align="center"></div></li>
+<li data-row="1" data-col="1" data-sizex="2" data-sizey="4" class="gs-w"><div class="gridster-box" id="div3" align="center"></div></li>
+<li data-row="1" data-col="1" data-sizex="2" data-sizey="1" class="gs-w"><div class="gridster-box" id="div4" align="center"></div></li>
+<li data-row="1" data-col="1" data-sizex="2" data-sizey="2" class="gs-w"><div class="gridster-box" id="div5" align="center"></div></li>
+</ul>
+</div>
+
+<script type="text/javascript">
+    function renderDonutChart() {
+    
+        var data = [{"name":"Architecture Services","value":50,"color":0},{"name":"Construction Services","value":12,"color":0},{"name":"Buildings","value":9,"color":0},{"name":"Engineering Service Providers","value":14,"color":0},{"name":"Life Sciences Manufacturing","value":1,"color":0},{"name":"Civil Infrastructure","value":2,"color":0},{"name":"Education","value":4,"color":0}];
+    
+        var margin = {top: 150, right: 150, bottom: 150, left: 150};
+    
+        var w = 600 - margin.left - margin.right,
+            h = 600 - margin.top - margin.bottom,
+            r = w / 2,
+            labelr = r + 10, // radius for label anchor
+            donut = d3.layout.pie().sort(null),
+            inner = r * 0.6,
+            arc = d3.svg.arc().innerRadius(inner).outerRadius(r),
+            arcOver = d3.svg.arc().innerRadius(inner + 5).outerRadius(r + 5);
+    
+        var color = d3.scale.category20c();
+    
+        var total = d3.sum(data, function(d) { return d3.sum(d3.values(d));});
+    
+        var vis = d3.select("#div0")
+            .append("svg")
+            .data([data])
+            .attr("width", w + margin.left + margin.right)
+            .attr("height", h + margin.top + margin.bottom);
+    
+        var textTop = vis.append("text")
+            .attr("dy", ".35em")
+            .style("text-anchor", "middle")
+            .attr("font-family", "Segoe UI")
+            .attr("font-size", r/7 + "px")
+            .attr("fill", "#bbb")
+            .attr("x", (w + margin.left + margin.right) / 2)
+            .attr("y", ((h + margin.top + margin.bottom) / 2) - (r/7)/2)
+            .text("TOTAL");
+    
+        var textBottom = vis.append("text")
+            .attr("dy", ".35em")
+            .attr("font-family", "Segoe UI")
+            .style("text-anchor", "middle")
+            .attr("font-weight", "bold")
+            .attr("font-size", r/6 + "px")
+            .text(total)
+            .attr("x", (w + margin.left + margin.right) / 2)
+            .attr("y", ((h + margin.top + margin.bottom) / 2) + (r/6)/2);
+    
+        var arcs = vis.selectAll("arc")
+            .data(donut.value(function (d) { return d.value; }))
+            .enter().append("g")
+            .attr("class", "arc")
+            .attr("transform", "translate(" + (w + margin.left + margin.right) / 2 + "," + (h + margin.top + margin.bottom) / 2 + ")");
+    
+        arcs.append("path")
+            .attr("fill", function (d) { return color(d.data.name); })
+            .attr("d", arc)
+            .style("stroke", "white")
+            .style("stroke-width", 2);
+    
+
+        function computeTextRotation(d) {
+            var rotation = (d.startAngle + d.endAngle)/2 * 180 / Math.PI - 90;
+            return {
+                global: rotation,
+                correction: rotation > 90 ? 180 : 0
+            };
+        }
+    
+        arcs.append("text")
+            .attr("transform", function(d){
+                var rotation = computeTextRotation(d);
+                return "rotate(" + rotation.global + ")" + "translate(" + (r + 15) + ",0)" + "rotate(" + -rotation.correction + ")";
+            })
+            .attr("dy", ".35em")
+            .attr("text-anchor", function(d){
+                var rotation = computeTextRotation(d);
+                return rotation.correction === 0 ? "start" : "end";
+            })
+            .text(function(d) { return d.data.name; });
+        
+        arcs.selectAll("path")
+            .on("mouseover", function (d) {
+                d3.select(this).transition()
+                    .duration(200)
+                    .attr("d", arcOver);
+    
+                textTop.text(d.data.name);
+                textBottom.text(d.data.value);
+    
+                d3.select(this).style("fill", "#FF0000");
+            })
+            .on("mouseout", function () {
+                d3.select(this).transition()
+                    .duration(100)
+                    .attr("d", arc);
+    
+                textTop.text("TOTAL");
+                textBottom.text(total);
+    
+                d3.select(this).style("fill", function (d) { return color(d.data.name); });
+            });
+    }
+    renderDonutChart();
+</script>
+
+
+<script type="text/javascript">
+    function CreateLegend() {
+        var data = ["Architecture Services","Construction Services","Buildings","Engineering Service Providers","Life Sciences Manufacturing","Civil Infrastructure","Education"];
+
+        var width = 200,
+            height = 400,
+            recSize = 20;
+
+            var color = d3.scale.category20c();
+
+        var svg = d3.select("#div1").append("svg")
+          .attr("width", width)
+          .attr("height", height)
+
+        var g = svg.selectAll("g")
+            .data(data)
+            .enter().append("g")
+            .attr("transform", function(d, i){
+                return "translate(" + (0) + "," + ((recSize + 2) * i) + ")";});
+
+        g.append("rect")
+            .attr("width", recSize)
+            .attr("height", recSize)
+            .style("stroke", "#fff")
+            .style("shape-rendering", "crispEdges")
+            .style("fill", function(d,i){ return color(i); });
+
+        g.append("text")
+            .attr("dy", "1.3em")
+            .style("text-anchor", "start")
+            .attr("dx", recSize + 5)
+            .attr("font-size", recSize/2 + "px")
+            .text(function(d){return d });
+
+        var title = svg.append("text")
+            .attr("dy", ".35em")
+            .style("text-anchor", "middle")
+            .attr("font-family", "Segoe UI")
+            .attr("font-size", (recSize/2) + 5 + "px")
+            .attr("font-weight", "Bold")
+            .attr("x", width /2)
+            .attr("y", data.length * (recSize + 1) + 25)
+            .text("Industry Segment");
+    }
+    CreateLegend();
+</script>
+
+<script type="text/javascript">
+    function renderDonutChart() {
+    
+        var data = [{"name":"Architect","value":19,"color":0},{"name":"BIM/VDC Manager","value":41,"color":0},{"name":"Drafter","value":2,"color":0},{"name":"Technical Manager","value":2,"color":0},{"name":"Structural Engineer","value":5,"color":0},{"name":"Mechanical Engineer","value":1,"color":0},{"name":"-","value":1,"color":0},{"name":"Technical Consultant","value":4,"color":0},{"name":"Other","value":6,"color":0},{"name":"CAD Manager","value":3,"color":0},{"name":"Education Professional/Administrator","value":1,"color":0},{"name":"Production \u0026 Operations Manager","value":1,"color":0},{"name":"Construction Manager","value":1,"color":0},{"name":"Mechanical Electrical Plumbing (MEP) Engineer","value":1,"color":0},{"name":"Civil Engineer","value":1,"color":0},{"name":"Project Manager","value":1,"color":0},{"name":"Teacher/Professor","value":1,"color":0},{"name":"Programmer/Software Developer","value":1,"color":0}];
+    
+        var margin = {top: 150, right: 150, bottom: 150, left: 150};
+    
+        var w = 600 - margin.left - margin.right,
+            h = 600 - margin.top - margin.bottom,
+            r = w / 2,
+            labelr = r + 10, // radius for label anchor
+            donut = d3.layout.pie().sort(null),
+            inner = r * 0.6,
+            arc = d3.svg.arc().innerRadius(inner).outerRadius(r),
+            arcOver = d3.svg.arc().innerRadius(inner + 5).outerRadius(r + 5);
+    
+        var color = d3.scale.category20c();
+    
+        var total = d3.sum(data, function(d) { return d3.sum(d3.values(d));});
+    
+        var vis = d3.select("#div2")
+            .append("svg")
+            .data([data])
+            .attr("width", w + margin.left + margin.right)
+            .attr("height", h + margin.top + margin.bottom);
+    
+        var textTop = vis.append("text")
+            .attr("dy", ".35em")
+            .style("text-anchor", "middle")
+            .attr("font-family", "Segoe UI")
+            .attr("font-size", r/7 + "px")
+            .attr("fill", "#bbb")
+            .attr("x", (w + margin.left + margin.right) / 2)
+            .attr("y", ((h + margin.top + margin.bottom) / 2) - (r/7)/2)
+            .text("TOTAL");
+    
+        var textBottom = vis.append("text")
+            .attr("dy", ".35em")
+            .attr("font-family", "Segoe UI")
+            .style("text-anchor", "middle")
+            .attr("font-weight", "bold")
+            .attr("font-size", r/6 + "px")
+            .text(total)
+            .attr("x", (w + margin.left + margin.right) / 2)
+            .attr("y", ((h + margin.top + margin.bottom) / 2) + (r/6)/2);
+    
+        var arcs = vis.selectAll("arc")
+            .data(donut.value(function (d) { return d.value; }))
+            .enter().append("g")
+            .attr("class", "arc")
+            .attr("transform", "translate(" + (w + margin.left + margin.right) / 2 + "," + (h + margin.top + margin.bottom) / 2 + ")");
+    
+        arcs.append("path")
+            .attr("fill", function (d) { return color(d.data.name); })
+            .attr("d", arc)
+            .style("stroke", "white")
+            .style("stroke-width", 2);
+    
+
+        function computeTextRotation(d) {
+            var rotation = (d.startAngle + d.endAngle)/2 * 180 / Math.PI - 90;
+            return {
+                global: rotation,
+                correction: rotation > 90 ? 180 : 0
+            };
+        }
+    
+        arcs.append("text")
+            .attr("transform", function(d){
+                var rotation = computeTextRotation(d);
+                return "rotate(" + rotation.global + ")" + "translate(" + (r + 15) + ",0)" + "rotate(" + -rotation.correction + ")";
+            })
+            .attr("dy", ".35em")
+            .attr("text-anchor", function(d){
+                var rotation = computeTextRotation(d);
+                return rotation.correction === 0 ? "start" : "end";
+            })
+            .text(function(d) { return d.data.name; });
+        
+        arcs.selectAll("path")
+            .on("mouseover", function (d) {
+                d3.select(this).transition()
+                    .duration(200)
+                    .attr("d", arcOver);
+    
+                textTop.text(d.data.name);
+                textBottom.text(d.data.value);
+    
+                d3.select(this).style("fill", "#FF0000");
+            })
+            .on("mouseout", function () {
+                d3.select(this).transition()
+                    .duration(100)
+                    .attr("d", arc);
+    
+                textTop.text("TOTAL");
+                textBottom.text(total);
+    
+                d3.select(this).style("fill", function (d) { return color(d.data.name); });
+            });
+    }
+    renderDonutChart();
+</script>
+
+
+<script type="text/javascript">
+    function CreateLegend() {
+        var data = ["Architect","BIM/VDC Manager","Drafter","Technical Manager","Structural Engineer","Mechanical Engineer","-","Technical Consultant","Other","CAD Manager","Education Professional/Administrator","Production \u0026 Operations Manager","Construction Manager","Mechanical Electrical Plumbing (MEP) Engineer","Civil Engineer","Project Manager","Teacher/Professor","Programmer/Software Developer"];
+
+        var width = 200,
+            height = 400,
+            recSize = 20;
+
+            var color = d3.scale.category20c();
+
+        var svg = d3.select("#div3").append("svg")
+          .attr("width", width)
+          .attr("height", height)
+
+        var g = svg.selectAll("g")
+            .data(data)
+            .enter().append("g")
+            .attr("transform", function(d, i){
+                return "translate(" + (0) + "," + ((recSize + 2) * i) + ")";});
+
+        g.append("rect")
+            .attr("width", recSize)
+            .attr("height", recSize)
+            .style("stroke", "#fff")
+            .style("shape-rendering", "crispEdges")
+            .style("fill", function(d,i){ return color(i); });
+
+        g.append("text")
+            .attr("dy", "1.3em")
+            .style("text-anchor", "start")
+            .attr("dx", recSize + 5)
+            .attr("font-size", recSize/2 + "px")
+            .text(function(d){return d });
+
+        var title = svg.append("text")
+            .attr("dy", ".35em")
+            .style("text-anchor", "middle")
+            .attr("font-family", "Segoe UI")
+            .attr("font-size", (recSize/2) + 5 + "px")
+            .attr("font-weight", "Bold")
+            .attr("x", width /2)
+            .attr("y", data.length * (recSize + 1) + 25)
+            .text("Job Title");
+    }
+    CreateLegend();
+</script>
+
+<script type="text/javascript">
+    function LoadText()
+    {
+        var paragraph = document.createElement("p");
+        paragraph.style.fontSize = "20px";
+        paragraph.style.color = "#000000";
+        paragraph.style.textTransform = "none";
+        paragraph.style.fontWeight = "normal";
+        paragraph.style.fontStyle = "normal";
+
+        // center text note in div
+        paragraph.style.margin = "0";
+        paragraph.style.top = "50%";
+        paragraph.style.position = "absolute";
+        paragraph.style.left = "50%";
+        paragraph.style.marginRight = "-50%";
+        paragraph.style.transform = "translate(-50%, -50%)";
+        
+        var node = document.createTextNode("Autodesk University 2017 - Advanced Computational BIM Workshop");
+        paragraph.appendChild(node);
+
+        document.getElementById("div4").appendChild(paragraph);
+    }
+    LoadText();
+</script>
+
+
+<script type="text/javascript">
+    function LoadImage() {
+        var elem = document.createElement("img");
+        elem.src = "file:///C:/Users/johnp/Pictures/stickers/dynamo_logo.svg";
+        elem.setAttribute("width", "150");
+        elem.setAttribute("height", "150");
+        elem.setAttribute("style", "block");
+        elem.setAttribute("title", "")
+        document.getElementById("div5").appendChild(elem);
+    }
+    LoadImage();
+</script>
+</body>
+
