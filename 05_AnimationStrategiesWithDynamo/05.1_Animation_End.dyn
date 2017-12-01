@@ -1,0 +1,88 @@
+<Workspace Version="1.3.2.2480" X="116.875261211117" Y="24.3973816480249" zoom="0.784369328044827" ScaleFactor="1" Name="Home" Description="" RunType="Manual" RunPeriod="1000" HasRunWithoutCrash="False">
+  <NamespaceResolutionMap />
+  <Elements>
+    <DSRevitNodesUI.FamilyTypes guid="06c131bf-8f99-4929-9292-fd1754f8f993" type="DSRevitNodesUI.FamilyTypes" nickname="Family Types" x="279.474186557542" y="330.896746230167" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false" index="0:08 1100_EvolveLAB-Door_Single:HM 3'-0&quot; x 7'-0&quot;" />
+    <DSRevitNodesUI.ElementsOfFamilyType guid="e019144b-883e-42f3-993f-8d7b68188c3a" type="DSRevitNodesUI.ElementsOfFamilyType" nickname="All Elements of Family Type" x="685.474186557542" y="330.896746230167" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <PortInfo index="0" default="False" />
+    </DSRevitNodesUI.ElementsOfFamilyType>
+    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="ab03ee7f-536f-4a50-bdd9-f1808aca4fe7" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="Element.AnimateNumericParameter" x="1008.65126535493" y="383.872740437616" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="C:\Users\johnp\AppData\Roaming\Dynamo\Dynamo Revit\1.3\packages\Rhythm\bin\Rhythm.dll" function="Animate.Element.AnimateNumericParameter@Revit.Elements.Element[],string,double,double,int,string,Revit.Elements.Element">
+      <PortInfo index="0" default="False" />
+      <PortInfo index="1" default="False" />
+      <PortInfo index="2" default="False" />
+      <PortInfo index="3" default="False" />
+      <PortInfo index="4" default="False" />
+      <PortInfo index="5" default="False" />
+      <PortInfo index="6" default="False" />
+    </Dynamo.Graph.Nodes.ZeroTouch.DSFunction>
+    <CoreNodeModels.Input.StringInput guid="720887f4-1430-45a9-b2e2-4c737aeb7703" type="CoreNodeModels.Input.StringInput" nickname="String" x="672.474186557542" y="559.896746230167" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <System.String>D:\OneDrive\EvolveLAB Transfer\EvolveLAB\Presentations\AU2017\Dynamo BIM Workshop\Dataset\05_AnimationStrategiesWithDynamo\Images\Doors\</System.String>
+      <System.String value="D:\OneDrive\EvolveLAB Transfer\EvolveLAB\Presentations\AU2017\Dynamo BIM Workshop\Dataset\05_AnimationStrategiesWithDynamo\Images\Doors\" />
+    </CoreNodeModels.Input.StringInput>
+    <Dynamo.Graph.Nodes.CodeBlockNodeModel guid="6bfeecc1-3521-4e39-aa0a-f95379d01a35" type="Dynamo.Graph.Nodes.CodeBlockNodeModel" nickname="Code Block" x="717.474186557542" y="423.896746230167" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" CodeText="&quot;3D Swing Angle&quot;;&#xA;0;&#xA;90;&#xA;20;" ShouldFocus="false" />
+    <Dynamo.Graph.Nodes.CustomNodes.Function guid="eec5f5c2-ad05-4384-a527-0fb2939392cb" type="Dynamo.Graph.Nodes.CustomNodes.Function" nickname="Springs.Doc.ActiveView" x="699.474186557542" y="711.896746230167" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <PortInfo index="0" default="True" />
+      <ID value="58849545-7510-4baf-99da-98c0b1e184fd" />
+      <Name value="Springs.Doc.ActiveView" />
+      <Description value="Selects the current document's active view. Supports more view types than the built-in option.&#xD;&#xA;Will be depreciated once the bult in node works with all plan types." />
+      <Inputs>
+        <Input value="refresh" />
+      </Inputs>
+      <Outputs>
+        <Output value="view" />
+      </Outputs>
+    </Dynamo.Graph.Nodes.CustomNodes.Function>
+  </Elements>
+  <Connectors>
+    <Dynamo.Graph.Connectors.ConnectorModel start="06c131bf-8f99-4929-9292-fd1754f8f993" start_index="0" end="e019144b-883e-42f3-993f-8d7b68188c3a" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="e019144b-883e-42f3-993f-8d7b68188c3a" start_index="0" end="ab03ee7f-536f-4a50-bdd9-f1808aca4fe7" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="720887f4-1430-45a9-b2e2-4c737aeb7703" start_index="0" end="ab03ee7f-536f-4a50-bdd9-f1808aca4fe7" end_index="5" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="6bfeecc1-3521-4e39-aa0a-f95379d01a35" start_index="0" end="ab03ee7f-536f-4a50-bdd9-f1808aca4fe7" end_index="1" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="6bfeecc1-3521-4e39-aa0a-f95379d01a35" start_index="1" end="ab03ee7f-536f-4a50-bdd9-f1808aca4fe7" end_index="2" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="6bfeecc1-3521-4e39-aa0a-f95379d01a35" start_index="2" end="ab03ee7f-536f-4a50-bdd9-f1808aca4fe7" end_index="3" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="6bfeecc1-3521-4e39-aa0a-f95379d01a35" start_index="3" end="ab03ee7f-536f-4a50-bdd9-f1808aca4fe7" end_index="4" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="eec5f5c2-ad05-4384-a527-0fb2939392cb" start_index="0" end="ab03ee7f-536f-4a50-bdd9-f1808aca4fe7" end_index="6" portType="0" />
+  </Connectors>
+  <Notes>
+    <Dynamo.Graph.Notes.NoteModel guid="a7da0e3e-76cc-451e-a603-f3061b840841" text="&lt;/Title&gt;" x="1215.98549539296" y="86.8724059815156" />
+    <Dynamo.Graph.Notes.NoteModel guid="cee8dd26-720c-422e-8586-fbb10b84e4ff" text="&lt;Title&gt;" x="277.649925590048" y="93.4620049316314" />
+    <Dynamo.Graph.Notes.NoteModel guid="c365d35f-fde8-4d34-806e-efd90ec728dd" text="For sliders and other options" x="658.564836235138" y="213.363360580016" />
+    <Dynamo.Graph.Notes.NoteModel guid="c31cc8af-59a9-44f5-87ee-4c9810faf47f" text="For changes made to Revit" x="864.815108261326" y="213.363360580016" />
+    <Dynamo.Graph.Notes.NoteModel guid="f18fe217-0f53-4a17-9b50-7ff5b6848388" text="For notes and titles" x="1065.12498048967" y="213.363360580016" />
+    <Dynamo.Graph.Notes.NoteModel guid="6e7ed838-ab03-4499-a31a-e4d427d4e588" text="For selection and whatnot" x="467.199951094495" y="213.363360580016" />
+    <Dynamo.Graph.Notes.NoteModel guid="e46f99fe-acfa-42a6-b522-e58d80284c01" text="For workflow " x="279.619962754245" y="213.363360580016" />
+  </Notes>
+  <Annotations>
+    <Dynamo.Graph.Annotations.AnnotationModel guid="b1f767b2-9ef3-4a5a-8a2a-65175af8fdeb" annotationText="Dynamo Workshop- Animate Door Parameters." left="267.649925590048" top="33.8724059815156" width="1022.33556980291" height="103.589598950116" fontSize="36" InitialTop="86.8724059815156" InitialHeight="141.059858754912" TextblockHeight="43" backgrouund="#FF48B9FF">
+      <Models ModelGuid="cee8dd26-720c-422e-8586-fbb10b84e4ff" />
+      <Models ModelGuid="a7da0e3e-76cc-451e-a603-f3061b840841" />
+    </Dynamo.Graph.Annotations.AnnotationModel>
+    <Dynamo.Graph.Annotations.AnnotationModel guid="42deb996-2e14-49b5-93dc-06203b3ac044" annotationText="Control" left="648.564836235138" top="167.363360580016" width="192" height="90" fontSize="30" InitialTop="213.363360580016" InitialHeight="140" TextblockHeight="36" backgrouund="#FFC1D676">
+      <Models ModelGuid="c365d35f-fde8-4d34-806e-efd90ec728dd" />
+    </Dynamo.Graph.Annotations.AnnotationModel>
+    <Dynamo.Graph.Annotations.AnnotationModel guid="883c8f4e-1cce-4085-8a21-bfe9a665f0bd" annotationText="To Revit" left="854.815108261326" top="167.363360580016" width="181" height="90" fontSize="30" InitialTop="213.363360580016" InitialHeight="140" TextblockHeight="36" backgrouund="#FFFFAA45">
+      <Models ModelGuid="c31cc8af-59a9-44f5-87ee-4c9810faf47f" />
+    </Dynamo.Graph.Annotations.AnnotationModel>
+    <Dynamo.Graph.Annotations.AnnotationModel guid="2e418c2a-881b-4bab-9a93-e4ac5f131d64" annotationText="Annotation" left="1055.12498048967" top="167.363360580016" width="158.296666666667" height="90" fontSize="30" InitialTop="213.363360580016" InitialHeight="140" TextblockHeight="36" backgrouund="#FF48B9FF">
+      <Models ModelGuid="f18fe217-0f53-4a17-9b50-7ff5b6848388" />
+    </Dynamo.Graph.Annotations.AnnotationModel>
+    <Dynamo.Graph.Annotations.AnnotationModel guid="c3896cd4-bc5d-4dc2-9b6a-8c07ac5afabd" annotationText="Input" left="457.199951094495" top="167.363360580016" width="177" height="90" fontSize="30" InitialTop="213.363360580016" InitialHeight="140" TextblockHeight="36" backgrouund="#FFBB87C6">
+      <Models ModelGuid="6e7ed838-ab03-4499-a31a-e4d427d4e588" />
+    </Dynamo.Graph.Annotations.AnnotationModel>
+    <Dynamo.Graph.Annotations.AnnotationModel guid="3c321191-75a0-4977-9365-d712c18fa6dc" annotationText="Background" left="269.619962754245" top="167.363360580016" width="168.523333333333" height="90" fontSize="30" InitialTop="213.363360580016" InitialHeight="140" TextblockHeight="36" backgrouund="#FFB5B5B5">
+      <Models ModelGuid="e46f99fe-acfa-42a6-b522-e58d80284c01" />
+    </Dynamo.Graph.Annotations.AnnotationModel>
+    <Dynamo.Graph.Annotations.AnnotationModel guid="cf095379-ed52-4581-a4a2-5984d43c8fea" annotationText="Family types and parameter values" left="269.474186557542" top="284.896746230167" width="628" height="423" fontSize="30" InitialTop="330.896746230167" InitialHeight="407" TextblockHeight="36" backgrouund="#FFBB87C6">
+      <Models ModelGuid="06c131bf-8f99-4929-9292-fd1754f8f993" />
+      <Models ModelGuid="e019144b-883e-42f3-993f-8d7b68188c3a" />
+      <Models ModelGuid="720887f4-1430-45a9-b2e2-4c737aeb7703" />
+      <Models ModelGuid="6bfeecc1-3521-4e39-aa0a-f95379d01a35" />
+    </Dynamo.Graph.Annotations.AnnotationModel>
+    <Dynamo.Graph.Annotations.AnnotationModel guid="2d9de0e0-3f4a-481c-a7a7-35f68c20cd73" annotationText="Animate in Revit." left="998.65126535493" top="337.872740437616" width="290" height="295" fontSize="30" InitialTop="383.872740437616" InitialHeight="279" TextblockHeight="36" backgrouund="#FFFFAA45">
+      <Models ModelGuid="ab03ee7f-536f-4a50-bdd9-f1808aca4fe7" />
+    </Dynamo.Graph.Annotations.AnnotationModel>
+  </Annotations>
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="-17" eyeY="24" eyeZ="50" lookX="12" lookY="-13" lookZ="-58" upX="0" upY="1" upZ="0" />
+  </Cameras>
+</Workspace>
