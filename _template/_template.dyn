@@ -1,0 +1,39 @@
+<Workspace Version="1.3.2.2480" X="-911.783069502779" Y="-462.244218114714" zoom="1.78294859981816" ScaleFactor="1" Name="Home" Description="" RunType="Automatic" RunPeriod="1000" HasRunWithoutCrash="True">
+  <NamespaceResolutionMap />
+  <Elements />
+  <Connectors />
+  <Notes>
+    <Dynamo.Graph.Notes.NoteModel guid="5ef6755b-71e5-4c6e-ad30-ef97dc29d3ac" text="&lt;/Title&gt;" x="1391.33251478333" y="435.19750855141" />
+    <Dynamo.Graph.Notes.NoteModel guid="325e936c-5116-4767-a8ff-ce0ea942fc73" text="For changes made to Revit" x="1115.38179508446" y="554.039005444882" />
+    <Dynamo.Graph.Notes.NoteModel guid="318e3ef7-b36c-456c-a43e-e43a6a4f9a7b" text="For notes and titles" x="1315.6916673128" y="554.039005444882" />
+    <Dynamo.Graph.Notes.NoteModel guid="aaba4e69-0bea-4a71-b075-94fd1bc4be95" text="For sliders and other options" x="909.131523058275" y="554.039005444882" />
+    <Dynamo.Graph.Notes.NoteModel guid="6d760212-d931-4eb9-b2bc-c73ec0459155" text="For selection and whatnot" x="717.766637917631" y="554.039005444882" />
+    <Dynamo.Graph.Notes.NoteModel guid="7a94d1e5-e5fa-4c92-ae1f-2e0623bdd972" text="For workflow " x="530.186649577382" y="554.039005444882" />
+    <Dynamo.Graph.Notes.NoteModel guid="13c464ec-3777-466d-b0b8-2104a509a360" text="&lt;Title&gt;" x="528.216612413185" y="434.137649796498" />
+  </Notes>
+  <Annotations>
+    <Dynamo.Graph.Annotations.AnnotationModel guid="4dbcd780-0780-49ce-a264-0f679b5f798f" annotationText="Dynamo Workshop- Animate Curtain Panel Materials" left="518.216612413185" top="381.137649796498" width="947.115902370145" height="98.059858754912" fontSize="36" InitialTop="434.137649796498" InitialHeight="141.059858754912" TextblockHeight="43" backgrouund="#FF48B9FF">
+      <Models ModelGuid="13c464ec-3777-466d-b0b8-2104a509a360" />
+      <Models ModelGuid="5ef6755b-71e5-4c6e-ad30-ef97dc29d3ac" />
+    </Dynamo.Graph.Annotations.AnnotationModel>
+    <Dynamo.Graph.Annotations.AnnotationModel guid="10603395-a354-4e7a-a862-4a6b02131580" annotationText="To Revit" left="1105.38179508446" top="508.039005444882" width="181" height="90" fontSize="30" InitialTop="554.039005444882" InitialHeight="140" TextblockHeight="36" backgrouund="#FFFFAA45">
+      <Models ModelGuid="325e936c-5116-4767-a8ff-ce0ea942fc73" />
+    </Dynamo.Graph.Annotations.AnnotationModel>
+    <Dynamo.Graph.Annotations.AnnotationModel guid="a2fcb445-b7bd-4980-b73e-cafe54c9709f" annotationText="Annotation" left="1305.6916673128" top="508.039005444882" width="158.296666666667" height="90" fontSize="30" InitialTop="554.039005444882" InitialHeight="140" TextblockHeight="36" backgrouund="#FF48B9FF">
+      <Models ModelGuid="318e3ef7-b36c-456c-a43e-e43a6a4f9a7b" />
+    </Dynamo.Graph.Annotations.AnnotationModel>
+    <Dynamo.Graph.Annotations.AnnotationModel guid="f88a16c7-e97c-4596-8112-7c8e763d6c63" annotationText="Control" left="899.131523058275" top="508.039005444882" width="192" height="90" fontSize="30" InitialTop="554.039005444882" InitialHeight="140" TextblockHeight="36" backgrouund="#FFC1D676">
+      <Models ModelGuid="aaba4e69-0bea-4a71-b075-94fd1bc4be95" />
+    </Dynamo.Graph.Annotations.AnnotationModel>
+    <Dynamo.Graph.Annotations.AnnotationModel guid="2a6dc367-b788-4065-ae6f-ea0f5534cad4" annotationText="Input" left="707.766637917631" top="508.039005444882" width="177" height="90" fontSize="30" InitialTop="554.039005444882" InitialHeight="140" TextblockHeight="36" backgrouund="#FFBB87C6">
+      <Models ModelGuid="6d760212-d931-4eb9-b2bc-c73ec0459155" />
+    </Dynamo.Graph.Annotations.AnnotationModel>
+    <Dynamo.Graph.Annotations.AnnotationModel guid="ef2a9c5e-86ca-487b-90a1-dc3501426b34" annotationText="Background" left="520.186649577382" top="508.039005444882" width="168.523333333333" height="90" fontSize="30" InitialTop="554.039005444882" InitialHeight="140" TextblockHeight="36" backgrouund="#FFB5B5B5">
+      <Models ModelGuid="7a94d1e5-e5fa-4c92-ae1f-2e0623bdd972" />
+    </Dynamo.Graph.Annotations.AnnotationModel>
+  </Annotations>
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="-17" eyeY="24" eyeZ="50" lookX="12" lookY="-13" lookZ="-58" upX="0" upY="1" upZ="0" />
+  </Cameras>
+</Workspace>
