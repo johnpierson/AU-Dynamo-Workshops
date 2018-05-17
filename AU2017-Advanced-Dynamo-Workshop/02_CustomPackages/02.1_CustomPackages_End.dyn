@@ -1,0 +1,50 @@
+<Workspace Version="1.3.2.2480" X="-491.114260533035" Y="559.417707062838" zoom="0.743483769730131" ScaleFactor="1" Name="Home" Description="" RunType="Manual" RunPeriod="1000" HasRunWithoutCrash="True">
+  <NamespaceResolutionMap />
+  <Elements>
+    <DSRevitNodesUI.Categories guid="68afc4e3-0dea-4d1a-a291-7d89e33ce936" type="DSRevitNodesUI.Categories" nickname="Categories" x="786.832940725972" y="-449.252038602124" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false" index="416:Rooms" />
+    <DSRevitNodesUI.ElementsOfCategory guid="aa03df54-c5e8-4857-9fa4-9638b426457a" type="DSRevitNodesUI.ElementsOfCategory" nickname="All Elements of Category" x="966.832940725972" y="-449.252038602124" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <PortInfo index="0" default="False" />
+    </DSRevitNodesUI.ElementsOfCategory>
+    <Dynamo.Graph.Nodes.CodeBlockNodeModel guid="1c126128-ec1f-4ca4-8165-162e31bfd514" type="Dynamo.Graph.Nodes.CodeBlockNodeModel" nickname="Code Block" x="1997.90099322796" y="-391.825951626822" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="true" CodeText="roomDic[key];" ShouldFocus="false">
+      <PortInfo index="0" default="False" />
+      <PortInfo index="1" default="False" />
+    </Dynamo.Graph.Nodes.CodeBlockNodeModel>
+    <Dynamo.Graph.Nodes.CodeBlockNodeModel guid="6ddd0e73-ee2e-4fc2-ac09-06fc2c769337" type="Dynamo.Graph.Nodes.CodeBlockNodeModel" nickname="Code Block" x="1522.50869106157" y="-443.871961507163" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" CodeText="roomDictionary = {};&#xA;roomDictionary[roomNumbers] = rooms;" ShouldFocus="false">
+      <PortInfo index="0" default="False" />
+      <PortInfo index="1" default="False" />
+    </Dynamo.Graph.Nodes.CodeBlockNodeModel>
+    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="285dbf51-ce17-4a6f-adc8-9fe78c6a3d6d" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="Element.GetParameterValueByName" x="1198.56585552162" y="-391.962432708675" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="RevitNodes.dll" function="Revit.Elements.Element.GetParameterValueByName@string">
+      <PortInfo index="0" default="False" />
+      <PortInfo index="1" default="False" />
+    </Dynamo.Graph.Nodes.ZeroTouch.DSFunction>
+    <Dynamo.Graph.Nodes.CodeBlockNodeModel guid="e13647c6-2e7c-4f24-b3b8-d7d086ffa3de" type="Dynamo.Graph.Nodes.CodeBlockNodeModel" nickname="Code Block" x="991.894826536339" y="-360.501927374014" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" CodeText="&quot;Number&quot;;" ShouldFocus="false" />
+    <CoreNodeModels.Input.StringInput guid="9e356aa9-1f3b-4d21-80ab-8140a4e1b7e3" type="CoreNodeModels.Input.StringInput" nickname="String" x="1809.20460579964" y="-249.39038969222" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <System.String>102</System.String>
+      <System.String value="102" />
+    </CoreNodeModels.Input.StringInput>
+  </Elements>
+  <Connectors>
+    <Dynamo.Graph.Connectors.ConnectorModel start="68afc4e3-0dea-4d1a-a291-7d89e33ce936" start_index="0" end="aa03df54-c5e8-4857-9fa4-9638b426457a" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="aa03df54-c5e8-4857-9fa4-9638b426457a" start_index="0" end="6ddd0e73-ee2e-4fc2-ac09-06fc2c769337" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="aa03df54-c5e8-4857-9fa4-9638b426457a" start_index="0" end="285dbf51-ce17-4a6f-adc8-9fe78c6a3d6d" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="6ddd0e73-ee2e-4fc2-ac09-06fc2c769337" start_index="0" end="1c126128-ec1f-4ca4-8165-162e31bfd514" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="285dbf51-ce17-4a6f-adc8-9fe78c6a3d6d" start_index="0" end="6ddd0e73-ee2e-4fc2-ac09-06fc2c769337" end_index="1" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="e13647c6-2e7c-4f24-b3b8-d7d086ffa3de" start_index="0" end="285dbf51-ce17-4a6f-adc8-9fe78c6a3d6d" end_index="1" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="9e356aa9-1f3b-4d21-80ab-8140a4e1b7e3" start_index="0" end="1c126128-ec1f-4ca4-8165-162e31bfd514" end_index="1" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations>
+    <Dynamo.Graph.Annotations.AnnotationModel guid="3ef84373-6332-4cca-9c78-f290a4d6f90c" annotationText="This builds the dictionary and grabs elements from it based on a key. In our case this will be room name." left="776.832940725972" top="-495.252038602124" width="1432.06805250199" height="227.75011122811" fontSize="30" InitialTop="-449.252038602124" InitialHeight="190.476432140663" TextblockHeight="36" backgrouund="#FFC1D676">
+      <Models ModelGuid="6ddd0e73-ee2e-4fc2-ac09-06fc2c769337" />
+      <Models ModelGuid="68afc4e3-0dea-4d1a-a291-7d89e33ce936" />
+      <Models ModelGuid="aa03df54-c5e8-4857-9fa4-9638b426457a" />
+      <Models ModelGuid="1c126128-ec1f-4ca4-8165-162e31bfd514" />
+      <Models ModelGuid="e13647c6-2e7c-4f24-b3b8-d7d086ffa3de" />
+      <Models ModelGuid="285dbf51-ce17-4a6f-adc8-9fe78c6a3d6d" />
+    </Dynamo.Graph.Annotations.AnnotationModel>
+  </Annotations>
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="-74.0805130004883" eyeY="93.1049728393555" eyeZ="22.7011947631836" lookX="12" lookY="-13" lookZ="-58" upX="0" upY="1" upZ="0" />
+  </Cameras>
+</Workspace>
