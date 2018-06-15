@@ -1,18 +1,14 @@
-<Workspace Version="1.3.2.2480" X="341.289224311497" Y="190.992386824082" zoom="0.716982951558229" ScaleFactor="1" Name="Home" Description="" RunType="Manual" RunPeriod="1000" HasRunWithoutCrash="False">
+<Workspace Version="1.3.3.4651" X="109.30849049911" Y="18.0743886391512" zoom="0.576033703577125" ScaleFactor="1" Name="Home" Description="" RunType="Manual" RunPeriod="1000" HasRunWithoutCrash="False">
   <NamespaceResolutionMap />
   <Elements>
     <archilabUI.ViewTemplatesUi guid="47cd35af-6222-464d-95a1-c2bcd2a2433b" type="archilabUI.ViewTemplatesUi" nickname="View Template to Send Filters To" x="316.986952380313" y="476.526131739936" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="true" index="1:Architectural Plan" />
-    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="4a416482-163e-4736-985a-84553d3fec6e" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="View.Filters" x="653.102455736334" y="356.189761881265" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="RevitNodes.dll" function="Revit.Elements.Views.View.Filters">
-      <PortInfo index="0" default="False" />
-    </Dynamo.Graph.Nodes.ZeroTouch.DSFunction>
+    <archilabUI.ViewTemplatesUi guid="76c44ee0-8e00-4e8a-9db6-dc5ca375812d" type="archilabUI.ViewTemplatesUi" nickname="View Template to Get Filters From" x="319.776418985695" y="198.437469113107" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="true" index="4:Architectural Section" />
     <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="90b7e17c-7701-46c0-b234-7db2f7785b19" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="View.AddFilter" x="970.537024739261" y="186.605833888715" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="RevitNodes.dll" function="Revit.Elements.Views.View.AddFilter@Revit.Filter.ParameterFilterElement">
       <PortInfo index="0" default="False" />
       <PortInfo index="1" default="False" />
     </Dynamo.Graph.Nodes.ZeroTouch.DSFunction>
-    <archilabUI.ViewTemplatesUi guid="76c44ee0-8e00-4e8a-9db6-dc5ca375812d" type="archilabUI.ViewTemplatesUi" nickname="View Template to Get Filters From" x="319.776418985695" y="198.437469113107" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="true" index="4:Architectural Section" />
-    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="b3db37d4-9e2d-4aa5-b6d9-5bc3c5f7ef3f" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="View.FilterOverrides" x="945.126112759644" y="402.813056379822" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="RevitNodes.dll" function="Revit.Elements.Views.View.FilterOverrides@Revit.Filter.ParameterFilterElement">
+    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="4a416482-163e-4736-985a-84553d3fec6e" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="View.Filters" x="653.102455736334" y="356.189761881265" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="RevitNodes.dll" function="Revit.Elements.Views.View.Filters">
       <PortInfo index="0" default="False" />
-      <PortInfo index="1" default="False" />
     </Dynamo.Graph.Nodes.ZeroTouch.DSFunction>
     <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="f7a396df-2a4d-480e-99e4-1198bf6594a1" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="View.SetFilterOverrides" x="1474.54704505114" y="330.617210682493" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="RevitNodes.dll" function="Revit.Elements.Views.View.SetFilterOverrides@Revit.Filter.ParameterFilterElement,Revit.Filter.OverrideGraphicSettings,bool">
       <PortInfo index="0" default="False" />
@@ -20,16 +16,20 @@
       <PortInfo index="2" default="False" />
       <PortInfo index="3" default="True" />
     </Dynamo.Graph.Nodes.ZeroTouch.DSFunction>
+    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="b3db37d4-9e2d-4aa5-b6d9-5bc3c5f7ef3f" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="View.FilterOverrides" x="945.126112759644" y="402.813056379822" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="RevitNodes.dll" function="Revit.Elements.Views.View.FilterOverrides@Revit.Filter.ParameterFilterElement">
+      <PortInfo index="0" default="False" />
+      <PortInfo index="1" default="False" />
+    </Dynamo.Graph.Nodes.ZeroTouch.DSFunction>
     <Dynamo.Graph.Nodes.CodeBlockNodeModel guid="9da3bdc3-b8f7-40a8-917d-4a20e2049a63" type="Dynamo.Graph.Nodes.CodeBlockNodeModel" nickname="Code Block" x="1338.4209322915" y="452" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" CodeText="true;" ShouldFocus="false" />
   </Elements>
   <Connectors>
     <Dynamo.Graph.Connectors.ConnectorModel start="47cd35af-6222-464d-95a1-c2bcd2a2433b" start_index="0" end="4a416482-163e-4736-985a-84553d3fec6e" end_index="0" portType="0" />
     <Dynamo.Graph.Connectors.ConnectorModel start="47cd35af-6222-464d-95a1-c2bcd2a2433b" start_index="0" end="b3db37d4-9e2d-4aa5-b6d9-5bc3c5f7ef3f" end_index="0" portType="0" />
-    <Dynamo.Graph.Connectors.ConnectorModel start="4a416482-163e-4736-985a-84553d3fec6e" start_index="0" end="b3db37d4-9e2d-4aa5-b6d9-5bc3c5f7ef3f" end_index="1" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="76c44ee0-8e00-4e8a-9db6-dc5ca375812d" start_index="0" end="90b7e17c-7701-46c0-b234-7db2f7785b19" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="90b7e17c-7701-46c0-b234-7db2f7785b19" start_index="0" end="f7a396df-2a4d-480e-99e4-1198bf6594a1" end_index="0" portType="0" />
     <Dynamo.Graph.Connectors.ConnectorModel start="4a416482-163e-4736-985a-84553d3fec6e" start_index="0" end="90b7e17c-7701-46c0-b234-7db2f7785b19" end_index="1" portType="0" />
     <Dynamo.Graph.Connectors.ConnectorModel start="4a416482-163e-4736-985a-84553d3fec6e" start_index="0" end="f7a396df-2a4d-480e-99e4-1198bf6594a1" end_index="1" portType="0" />
-    <Dynamo.Graph.Connectors.ConnectorModel start="90b7e17c-7701-46c0-b234-7db2f7785b19" start_index="0" end="f7a396df-2a4d-480e-99e4-1198bf6594a1" end_index="0" portType="0" />
-    <Dynamo.Graph.Connectors.ConnectorModel start="76c44ee0-8e00-4e8a-9db6-dc5ca375812d" start_index="0" end="90b7e17c-7701-46c0-b234-7db2f7785b19" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="4a416482-163e-4736-985a-84553d3fec6e" start_index="0" end="b3db37d4-9e2d-4aa5-b6d9-5bc3c5f7ef3f" end_index="1" portType="0" />
     <Dynamo.Graph.Connectors.ConnectorModel start="b3db37d4-9e2d-4aa5-b6d9-5bc3c5f7ef3f" start_index="0" end="f7a396df-2a4d-480e-99e4-1198bf6594a1" end_index="2" portType="0" />
     <Dynamo.Graph.Connectors.ConnectorModel start="9da3bdc3-b8f7-40a8-917d-4a20e2049a63" start_index="0" end="f7a396df-2a4d-480e-99e4-1198bf6594a1" end_index="3" portType="0" />
   </Connectors>
@@ -43,13 +43,7 @@
     <Dynamo.Graph.Notes.NoteModel guid="547d9bed-11d3-4124-94cf-833325404604" text="&lt;Title&gt;" x="298.89814150957" y="-100.669845423323" />
   </Notes>
   <Annotations>
-    <Dynamo.Graph.Annotations.AnnotationModel guid="d42a3748-a82e-404b-9b9a-ced9bebc2073" annotationText="Host View Template" left="309.776418985695" top="116.437469113107" width="260" height="175" fontSize="30" InitialTop="198.437469113107" InitialHeight="123" TextblockHeight="72" backgrouund="#FFC1D676">
-      <Models ModelGuid="76c44ee0-8e00-4e8a-9db6-dc5ca375812d" />
-    </Dynamo.Graph.Annotations.AnnotationModel>
-    <Dynamo.Graph.Annotations.AnnotationModel guid="105b4f95-d60e-408f-9821-40148b1e0e34" annotationText="Child View Template" left="306.986952380313" top="394.526131739936" width="243" height="175" fontSize="30" InitialTop="476.526131739936" InitialHeight="123" TextblockHeight="72" backgrouund="#FFC1D676">
-      <Models ModelGuid="47cd35af-6222-464d-95a1-c2bcd2a2433b" />
-    </Dynamo.Graph.Annotations.AnnotationModel>
-    <Dynamo.Graph.Annotations.AnnotationModel guid="5fa9ee01-3c95-49b1-ab5f-d9413baf61b5" annotationText="Dynamo Workshop- Copy Filters between View Templates." left="288.89814150957" top="-159.784224998528" width="944.158233038491" height="103.114379575205" fontSize="36" InitialTop="-106.784224998528" InitialHeight="146.114379575205" TextblockHeight="43" backgrouund="#FF48B9FF">
+    <Dynamo.Graph.Annotations.AnnotationModel guid="5fa9ee01-3c95-49b1-ab5f-d9413baf61b5" annotationText="Dynamo Workshop- Copy Filters between View Templates." left="288.89814150957" top="-159.784224998528" width="944.15823303849" height="103.114379575205" fontSize="36" InitialTop="-106.784224998528" InitialHeight="146.114379575205" TextblockHeight="43" backgrouund="#FF48B9FF">
       <Models ModelGuid="547d9bed-11d3-4124-94cf-833325404604" />
       <Models ModelGuid="99eaff63-5474-4d27-b5b0-7f8d29b94dde" />
     </Dynamo.Graph.Annotations.AnnotationModel>
@@ -67,6 +61,12 @@
     </Dynamo.Graph.Annotations.AnnotationModel>
     <Dynamo.Graph.Annotations.AnnotationModel guid="9566f48b-40ee-41af-b2fd-f366ee0f7b28" annotationText="Background" left="290.868178673767" top="-26.7684897749378" width="168.523333333333" height="90" fontSize="30" InitialTop="19.2315102250622" InitialHeight="140" TextblockHeight="36" backgrouund="#FFB5B5B5">
       <Models ModelGuid="4059b89d-7712-4f1f-b1e9-4afda81327ba" />
+    </Dynamo.Graph.Annotations.AnnotationModel>
+    <Dynamo.Graph.Annotations.AnnotationModel guid="d42a3748-a82e-404b-9b9a-ced9bebc2073" annotationText="Host View Template" left="309.776418985695" top="116.437469113107" width="260" height="175" fontSize="30" InitialTop="198.437469113107" InitialHeight="123" TextblockHeight="72" backgrouund="#FFC1D676">
+      <Models ModelGuid="76c44ee0-8e00-4e8a-9db6-dc5ca375812d" />
+    </Dynamo.Graph.Annotations.AnnotationModel>
+    <Dynamo.Graph.Annotations.AnnotationModel guid="105b4f95-d60e-408f-9821-40148b1e0e34" annotationText="Child View Template" left="306.986952380313" top="394.526131739936" width="243" height="175" fontSize="30" InitialTop="476.526131739936" InitialHeight="123" TextblockHeight="72" backgrouund="#FFC1D676">
+      <Models ModelGuid="47cd35af-6222-464d-95a1-c2bcd2a2433b" />
     </Dynamo.Graph.Annotations.AnnotationModel>
     <Dynamo.Graph.Annotations.AnnotationModel guid="17b6b7fa-bbbf-4194-9c28-cb3230ba9004" annotationText="Set the overrides" left="1328.4209322915" top="284.617210682493" width="397.12611275964" height="260.382789317507" fontSize="30" InitialTop="330.617210682493" InitialHeight="244.382789317507" TextblockHeight="36" backgrouund="#FFFFAA45">
       <Models ModelGuid="f7a396df-2a4d-480e-99e4-1198bf6594a1" />
